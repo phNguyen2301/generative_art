@@ -1,4 +1,10 @@
 :root {
   margin: 0;
   padding: 0;
+  height: 100vh;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

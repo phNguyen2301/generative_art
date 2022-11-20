@@ -1,44 +1,23 @@
-let canvas1 = document.querySelector('#canvas1');
-let canvas2 = document.querySelector('#canvas2');
-let context1 = canvas1.getContext('2d');
-let context2 = canvas2.getContext('2d');
+let canvas = document.querySelector('#canvas');
+let context = canvas.getContext('2d');
 
-// let size = window.innerWidth;
-let size = 480;
 let dpr = window.devicePixelRatio;
+let width = window.innerWidth / dpr;
+let height = window.innerHeight / dpr;
 
-canvas1.width = size * dpr;
-canvas1.height = size * dpr;
-context1.scale(dpr, dpr);
+let step = 20;
+canvas.width = (Math.floor(width / step) * step - 1) * dpr;
+canvas.height = (Math.floor(height / step) * step - 1) * dpr;
+context.scale(dpr, dpr);
 
-// canvas2.width = size * dpr;
-// canvas2.height = size * dpr;
-// context2.scale(dpr, dpr);
+context.lineCap = 'square';
+context.lineWidth = 2;
 
-context1.lineCap = 'square';
-context1.lineWidth = 2;
-
-// context2.lineCap = 'square';
-// context2.lineWidth = 2;
-
-let step1 = 20;
-for (let x = 0; x < size; x += step1) {
-  for (let y = 0; y < size; y += step1) {
-    draw(context1, x, y, step1, step1);
+for (let x = 0; x < width; x += step) {
+  for (let y = 0; y < height; y += step) {
+    draw(context, x, y, step, step);
   }
 }
-
-// let step2 = 10;
-// let lines = [];
-// // create lines
-// for (let i = step2; i <= size - step2; i += step2) {
-//   let line = [];
-//   for (let j = step2; j <= size - step2; j += step2) {
-//     let point = { x: j, y: i };
-//     line.push(point);
-//   }
-//   lines.push(line);
-// }
 
 function draw(context, x, y, width, height) {
   // TODO: Functionality here

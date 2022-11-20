@@ -2,4 +2,5 @@
 
 ## 1. tiled_lines
 
-<img src="./pics/tiled-lines.png">
+<img src="./pics/0.png">
+<img src="./pics/1.png">

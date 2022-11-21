@@ -2,7 +2,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 function setup() {
-  createCanvas(width, height - 20);
+  createCanvas(width, height);
   background(255);
   noLoop();
 }

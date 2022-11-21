@@ -1,5 +1,17 @@
 # generative_art
 
+Recreate some art using algorithms
+
+## Description
+
+This is my fun project to create some art and use it for my wallpaper
+
+## Usage
+
+Run HTML file in each folder to get your picture. You can customize some variables in the script.js file to get different results
+
+## Sample pics
+
 <table>
   <tr>
     <td>

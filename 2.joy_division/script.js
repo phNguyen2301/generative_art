@@ -1,8 +1,9 @@
 let width = window.innerWidth;
 let height = window.innerHeight;
+let size = Math.min(width, height);
 
 function setup() {
-  createCanvas(width, height);
+  createCanvas(size, size);
   background(255);
   noLoop();
 }
@@ -11,17 +12,13 @@ function draw() {
   let numberOfLines = 30;
   let step = 20;
   let magnitude = 50;
-  let middlePartWidth = width - 200;
+  let middlePartWidth = size - 2 * 50 - 200;
   strokeWeight(2);
   fill(255);
-  for (
-    let i = magnitude;
-    i <= height - magnitude;
-    i += (height - magnitude) / numberOfLines
-  ) {
+  for (let i = 50; i <= size - 50; i += (size - 50 * 2) / numberOfLines) {
     beginShape();
-    for (let j = step; j <= width; j += step) {
-      let distanceToCenter = Math.abs(j - width / 2);
+    for (let j = 50; j < size - 50; j += step) {
+      let distanceToCenter = Math.abs(j - size / 2);
       let variance =
         (Math.max(middlePartWidth / 2 - distanceToCenter, 0) * 2) /
         middlePartWidth;

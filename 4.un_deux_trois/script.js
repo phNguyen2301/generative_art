@@ -3,7 +3,7 @@ let height = window.innerHeight;
 let size = Math.min(width, height);
 
 function setup() {
-  createCanvas(width, height);
+  createCanvas(size, size);
   background(255);
   noLoop();
 }
@@ -21,11 +21,11 @@ function custom_draw(x, y, w, h, positions) {
 
 function draw() {
   let step = 20;
-  let aThird = size / 3;
+  let aThird = (size - 100) / 3;
   strokeWeight(4);
   strokeCap(ROUND);
-  for (var x = (width - size) / 2; x < (width - size) / 2 + size; x += step) {
-    for (var y = step; y < size - step; y += step) {
+  for (var x = 50; x < size - 50; x += step) {
+    for (var y = 50; y < size - 50; y += step) {
       if (y < aThird) {
         custom_draw(x, y, step, step, [0.5]);
       } else if (y < aThird * 2) {

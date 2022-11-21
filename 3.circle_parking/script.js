@@ -1,13 +1,14 @@
 let width = window.innerWidth;
 let height = window.innerHeight;
+let size = Math.min(width, height);
 let circles_list = [];
 let minRadius = 5;
 let maxRadius = 300;
-let totalCircles = 3000;
+let totalCircles = 2000;
 let createCircleAttempts = 3000;
 
 function setup() {
-  createCanvas(width, height);
+  createCanvas(size, size);
   background(255);
   noLoop();
 }
@@ -21,10 +22,10 @@ function doesCircleHaveACollision(circle) {
       return true;
     }
   }
-  if (circle.x + circle.radius >= width || circle.x - circle.radius <= 0) {
+  if (circle.x + circle.radius >= size - 50 || circle.x - circle.radius <= 50) {
     return true;
   }
-  if (circle.y + circle.radius >= height || circle.y - circle.radius <= 0) {
+  if (circle.y + circle.radius >= size - 50 || circle.y - circle.radius <= 50) {
     return true;
   }
   return false;
@@ -34,8 +35,8 @@ function createAndDrawCircle() {
   let circleSafeToDraw = false;
   for (let tries = 0; tries < createCircleAttempts; tries++) {
     newCircle = {
-      x: Math.floor(Math.random() * width),
-      y: Math.floor(Math.random() * height),
+      x: 50 + Math.floor(Math.random() * (size - 50)),
+      y: 50 + Math.floor(Math.random() * (size - 50)),
       radius: minRadius,
     };
     if (doesCircleHaveACollision(newCircle)) {
@@ -61,7 +62,7 @@ function createAndDrawCircle() {
 }
 
 function draw() {
-  strokeWeight(3);
+  strokeWeight(2);
   for (let i = 0; i < totalCircles; i++) {
     createAndDrawCircle();
   }
